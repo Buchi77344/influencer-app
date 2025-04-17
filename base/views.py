@@ -6,6 +6,12 @@ from .models import *
 from django.contrib import messages
 from django.utils.html import escape
 
+
+
+
+def index (request):
+    return render (request, 'index.html')
+
 @csrf_protect
 def influencer_signup(request):
     if request.method == 'POST':
