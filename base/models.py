@@ -29,9 +29,6 @@ class CustomUser(AbstractUser):
         return f"{self.username} ({self.role})"
 
 
-
-
-
 class Campaign(models.Model):
     brand = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='campaigns')
     title = models.CharField(max_length=255)
@@ -87,3 +84,8 @@ class Message(models.Model):
 
     def __str__(self):
         return f"{self.sender.username} -> {self.receiver.username} @ {self.timestamp}"
+    
+
+
+
+
