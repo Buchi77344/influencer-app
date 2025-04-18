@@ -42,7 +42,10 @@ html {
 body, p {
 	color: #5e6576; 
 	font: 400 1rem/1.625rem "Open Sans", sans-serif;
+	
 }
+
+
 
 h1 {
 	color: #223150;
@@ -182,9 +185,9 @@ a:hover {
 .btn-solid-lg {
 	display: inline-block;
 	padding: 1.625rem 2.625rem 1.625rem 2.625rem;
-	border: 1px solid #0092ff;
+	border: 1px solid white;
 	border-radius: 30px;
-	background-color: #0092ff;
+	background-color: black;
 	color: #ffffff;
 	font-weight: 600;
 	font-size: 0.875rem;
@@ -194,18 +197,19 @@ a:hover {
 }
 
 .btn-solid-lg:hover {
-	background-color: transparent;
-	color: #0092ff; /* needs to stay here because of the color property of a tag */
+	background-color: white;
+	color: black; /* needs to stay here because of the color property of a tag */
 	text-decoration: none;
+	border: 2px solid black;
 }
 
 .btn-solid-sm {
 	display: inline-block;
 	padding: 1rem 1.5rem 1rem 1.5rem;
-	border: 1px solid #0092ff;
+	border: 1px solid white;
 	border-radius: 30px;
-	background-color: #0092ff;
-	color: #ffffff;
+	background-color: black;
+	color: white;
 	font-weight: 600;
 	font-size: 0.875rem;
 	line-height: 0;
@@ -214,9 +218,10 @@ a:hover {
 }
 
 .btn-solid-sm:hover {
-	background-color: transparent;
-	color: #0092ff; /* needs to stay here because of the color property of a tag */
+	background-color: #f5f5f5;
+	color: #1d1d21; /* needs to stay here because of the color property of a tag */
 	text-decoration: none;
+	border:2px solid black;
 }
 
 .btn-outline-reg {
@@ -400,11 +405,11 @@ a:hover {
 	transition: all 0.2s ease;
 }
 
-.navbar .nav-item.dropdown.show .nav-link,
+/* .navbar .nav-item.dropdown.show .nav-link,
 .navbar .nav-item .nav-link:hover,
 .navbar .nav-item .nav-link.active {
 	color: #0092ff;
-}
+} */
 
 /* Dropdown Menu */
 .navbar .dropdown .dropdown-menu {

@@ -20,7 +20,10 @@ class CustomUser(AbstractUser):
 
     # Brand-specific
     company_name = models.CharField(max_length=255, blank=True)
+    brand_name = models.CharField(max_length=255, blank=True,null=True)
     website = models.URLField(blank=True)
+    phone = models.CharField(max_length=20, blank=True,null=True)
+    industry = models.CharField(max_length=70, blank=True,null=True)
 
     def __str__(self):
         return f"{self.username} ({self.role})"
