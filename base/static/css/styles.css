@@ -22,11 +22,11 @@ Table Of Contents:
 
 /*****************************************
 Colors:
-- Backgrounds - light gray #fcfafb
-- Buttons, icons - blue #0092ff
+- Backgrounds - white #FFFFFF
+- Buttons, icons - black #000000
 - Buttons, icons - red #ef473d
-- Headings text - black #223150
-- Body text - dark gray #5e6576
+- Headings text - black #000000
+- Body text - black #000000
 ******************************************/
 
 
@@ -41,7 +41,7 @@ html {
 
 body, p {
 	color: #5e6576; 
-	font: 400 1rem/1.625rem "Open Sans", sans-serif;
+	font: 400 1rem/1.625rem "Poppins", sans-serif;
 	
 }
 
@@ -147,12 +147,12 @@ a:hover {
 	vertical-align: -8%;
 }
 
-.blue {
-	color: #0092ff;
+.black {
+	color: #000000;
 }
 
-.bg-gray {
-	background-color: #fcfafb;
+.bg-white {
+	background-color: #ffffff;
 }
 
 .section-title {
@@ -165,9 +165,9 @@ a:hover {
 .btn-solid-reg {
 	display: inline-block;
 	padding: 1.375rem 2.25rem 1.375rem 2.25rem;
-	border: 1px solid #0092ff;
+	border: 1px solid #000000;
 	border-radius: 30px;
-	background-color: #0092ff;
+	background-color: #000000;
 	color: #ffffff;
 	font-weight: 600;
 	font-size: 0.875rem;
@@ -178,7 +178,7 @@ a:hover {
 
 .btn-solid-reg:hover {
 	background-color: transparent;
-	color: #0092ff; /* needs to stay here because of the color property of a tag */
+	color: #000000; /* needs to stay here because of the color property of a tag */
 	text-decoration: none;
 }
 
