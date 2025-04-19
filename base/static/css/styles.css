@@ -45,6 +45,12 @@ body, p {
 	
 }
 
+.wrapper{
+	width : 90%;
+	max-width : 1560px;
+	max-width: auto;
+}
+
 input:focus{
 	box-shadow: none!important;
 }
@@ -101,13 +107,21 @@ h6 {
 }
 
 .lg-text{
-	font-size : 4rem;
+	font-size : 3rem;
 	font-weight : 700;
 }
 
+
+
 @media(min-width : 1280px){
 	.lg-text, .head-text{
-		text-align: start!important;
+		text-align: start!important;	
+	}
+}
+
+@media(min-width : 900px){
+	.lg-text{
+		font-size: 4rem;
 	}
 }
 

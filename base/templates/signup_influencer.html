@@ -25,7 +25,33 @@
       overflow: hidden;
       position: relative;
       /* width: 100%; */
-      width: 500px;
+      width: 700px;
+    }
+
+    @media(max-width : 900px) {
+      .slider-container {
+        width : 500px
+      }
+    }
+
+    @media(max-width : 600px) {
+      .slider-container {
+        width : 430px
+      }
+    }
+
+    @media(max-width : 480px) {
+      .slider-container {
+        width : 340px
+      }
+    }
+
+    @media(max-width : 380px) {
+      .slider-container {
+        width : 300px
+      }
+
+    
     }
 
 
@@ -65,17 +91,17 @@
 </head>
 
 <body class="">
-  <div class="container d-flex justify-content-center align-items-center mx-auto min-vh-100">
-    <div class="row">
+  <div class="wrapper d-flex align-items-center mx-auto min-vh-100">
+    <div class="row w-full">
       <div class="py-5 col-xl-6">
-        <h2 class="lg-text mb-0 xl:text-start text-center ">
+        <h2 class="lg-text mb-0">
           <span class="block">Meet with </span>
           <span class="block">creators like you</span>
         </h2>
-        <p class="fs-5 res-w-75 mt-4 mx-auto xl:mx-0 text-center xl:text-start">Tell us a bit about yourself and an expert will be in touch to answer any
+        <p class="sub-text fs-5 res-w-75 mt-4">Tell us a bit about yourself and an expert will be in touch to answer any
           questions
           you may have</p>
-        <div class="slider-container mt-5 mx-auto xl:mx-0">
+        <div class="slider-container mt-5">
           <div class="slider-track">
             <!-- Repeat the images twice for seamless loop -->
             <img class="slide-img" src="../static/images/pic-1.jpg" alt="1">
