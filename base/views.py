@@ -43,31 +43,69 @@ def influencer_signup(request):
     return render(request, 'signup_influencer.html')
 
 
-@csrf_protect
+
 def brand_signup(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        company_name = request.POST.get('company_name')
-        website = request.POST.get('website')
-
-        if CustomUser.objects.filter(username=username).exists():
-            messages.error(request, "Username already taken.")
-            return redirect('brand_signup')
-
-        user = CustomUser.objects.create_user(
-            username=username,
-            email=email,
-            password=password,
-            role='brand',
-            company_name=company_name,
-            website=website
-        )
-        login(request, user)
-        return redirect('dashboard')
-
     return render(request, 'signup_brand.html')
+
+# views.py
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.core.exceptions import ValidationError
+from django.core.validators import EmailValidator
+
+import json
+
+@csrf_exempt
+def signup_brand(request):
+    if request.method == 'POST':
+        try:
+            # Parse the incoming JSON data
+            data = json.loads(request.body)
+
+            # Validate email
+            email = data.get('email', '')
+            email_validator = EmailValidator()
+
+            try:
+                email_validator(email)
+            except ValidationError:
+                return JsonResponse({'error': 'Invalid email address'}, status=400)
+
+            # Extract other fields
+            brand_name = data.get('brand_name', '')
+            company_name = data.get('company_name', '')
+            phone = data.get('phone', '')
+            website = data.get('website', '')
+            industry = data.get('industry', '')
+            password = data.get('password', '')
+            confirm_password = data.get('confirm_password', '')
+
+            # Password validation
+            if password != confirm_password:
+                return JsonResponse({'error': 'Passwords do not match'}, status=400)
+
+            # Create user
+             # This ensures you're using the CustomUser model
+            user = CustomUser.objects.create_user(
+                email=email,
+                username=email,
+                password=password,
+                brand_name=brand_name,
+                company_name=company_name,
+                phone=phone,
+                website=website,
+                industry=industry,
+                role= "brand"
+            )
+
+            # Return a success response
+            return JsonResponse({'message': 'Signup successful!'}, status=200)
+
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON data'}, status=400)
+
+    return JsonResponse({'error': 'Invalid request method'}, status=405)
+
 
 
 @csrf_protect
@@ -91,3 +129,11 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('login')
+
+
+def option(request):
+    return render (request, 'option.html')
+
+
+def brand_dash(request):
+    return render (request, 'brand-dash.html')
