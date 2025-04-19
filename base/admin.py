@@ -13,7 +13,7 @@ class UserAdmin(BaseUserAdmin):
     list_filter = ('role', 'is_staff', 'is_active')
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        ('Personal Info', {'fields': ('first_name', 'last_name', 'email', 'bio', 'profile_picture', 'location')}),
+        ('Personal Info', {'fields': ('first_name', 'last_name', 'code', 'email', 'bio', 'profile_picture', 'location')}),
         ('Role Info', {'fields': ('role', 'company_name', 'website', 'social_links', 'followers_count')}),
         ('Permissions', {'fields': ('is_staff', 'is_superuser', 'groups', 'user_permissions')}),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-!t1be$!c+4kao8_#n!=l35$^o7=s)s8)qb_-0*dzm=ajl59^g^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 'https://influencer-app-xozw.onrender.com','influencer-app-xozw.onrender.com','127.0.0.1','http://127.0.0.1:8000/']
 
 
 # Application definition
@@ -127,3 +127,6 @@ AUTH_USER_MODEL= "base.CustomUser"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
+# Replace with your desired "from" address
