@@ -1,5 +1,5 @@
- {% load static %}
- <!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -23,42 +23,44 @@
     }
 
     .slider-container {
-      overflow: hidden;
+      /* overflow: hidden; */
       position: relative;
       /* width: 100%; */
-      width: 700px;
+      /* width: 700px; */
+      width: 100%;
+      overflow: hidden;
     }
 
-    @media(max-width : 900px) {
+    /* @media(max-width : 900px) {
       .slider-container {
-        width : 500px
+        width: 500px
       }
     }
 
     @media(max-width : 600px) {
       .slider-container {
-        width : 430px
+        width: 430px
       }
     }
 
     @media(max-width : 480px) {
       .slider-container {
-        width : 340px
+        width: 340px
       }
     }
 
     @media(max-width : 380px) {
       .slider-container {
-        width : 300px
+        width: 300px
       }
 
-    
-    }
+
+    } */
 
 
     .slider-track {
       display: flex;
-      width: max-content;
+      width: calc(100% * 2);
       animation: slide-left 20s linear infinite;
     }
 
@@ -69,6 +71,7 @@
       border-radius: 50px;
       object-fit: cover;
       object-position: center;
+
     }
 
     .prev-step,
@@ -325,7 +328,7 @@
                   I'm 18 years old or older
                 </label>
               </div>
-              
+
               <div class="form-check mb-5">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" checked>
                 <label class="form-check-label" for="flexCheckChecked3">
@@ -350,13 +353,13 @@
       const nextBtns = form.querySelectorAll('.next-step');
       const prevBtns = form.querySelectorAll('.prev-step');
       let currentStep = 0;
-  
+
       function showStep(index) {
         steps.forEach((step, i) => {
           step.classList.toggle('active', i === index);
         });
       }
-  
+
       function validateStep(stepIndex) {
         const inputs = steps[stepIndex].querySelectorAll('input, select, textarea');
         for (let input of inputs) {
@@ -367,7 +370,7 @@
         }
         return true;
       }
-  
+
       nextBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           if (validateStep(currentStep)) {
@@ -377,7 +380,7 @@
           }
         });
       });
-  
+
       prevBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           currentStep--;
@@ -385,11 +388,11 @@
           showStep(currentStep);
         });
       });
-  
+
       showStep(currentStep); // Initialize first step visible
     });
   </script>
-  
+
 
 </body>
 
