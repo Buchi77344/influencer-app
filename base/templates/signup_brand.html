@@ -313,12 +313,24 @@
     dots.forEach((dot, index) => {
       dot.classList.toggle("active", index === currentStep);
     });
-    
+
     const progress = ((currentStep + 1) / steps.length) * 100;
     progressBar.style.width = `${progress}%`;
+
+    // Hide Next button on the last step
+    if (currentStep === steps.length - 1) {
+      nextBtn.style.display = "none";
+    } else {
+      nextBtn.style.display = "inline-block";
+    }
+
+    // Hide Back button on the first step
+    if (currentStep === 0) {
+      prevBtn.style.display = "none";
+    } else {
+      prevBtn.style.display = "inline-block";
+    }
   }
-
-
 
   function validateCurrentStep() {
     const inputs = steps[currentStep].querySelectorAll("input, select");
@@ -375,7 +387,6 @@
     submitText.textContent = "Processing...";
     submitBtn.disabled = true;
 
-    // Submit form data (fake endpoint used here)
     fetch("{% url 'signup_brand' %}", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -401,8 +412,9 @@
     });
   });
 
-  updateUI();
+  updateUI(); // Initialize UI on load
 </script>
+
 
 
 
