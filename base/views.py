@@ -55,23 +55,28 @@ from django.core.validators import EmailValidator
 
 import json
 
+import json
+import random
+from django.core.validators import EmailValidator
+from django.core.exceptions import ValidationError
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from django.core.mail import send_mail
+from .models import CustomUser  # adjust import based on your structure
+
 @csrf_exempt
 def signup_brand(request):
     if request.method == 'POST':
         try:
-            # Parse the incoming JSON data
             data = json.loads(request.body)
 
-            # Validate email
             email = data.get('email', '')
             email_validator = EmailValidator()
-
             try:
                 email_validator(email)
             except ValidationError:
                 return JsonResponse({'error': 'Invalid email address'}, status=400)
 
-            # Extract other fields
             brand_name = data.get('brand_name', '')
             company_name = data.get('company_name', '')
             phone = data.get('phone', '')
@@ -80,12 +85,17 @@ def signup_brand(request):
             password = data.get('password', '')
             confirm_password = data.get('confirm_password', '')
 
-            # Password validation
             if password != confirm_password:
                 return JsonResponse({'error': 'Passwords do not match'}, status=400)
 
-            # Create user
-             # This ensures you're using the CustomUser model
+            # Check if email or username already exists
+            if CustomUser.objects.filter(email=email).exists() or CustomUser.objects.filter(username=email).exists():
+                return JsonResponse({'error': 'Email or username already exists'}, status=400)
+
+            # Generate a 6-digit random verification code
+            code = str(random.randint(100000, 999999))
+
+            # Create user with verification code
             user = CustomUser.objects.create_user(
                 email=email,
                 username=email,
@@ -95,17 +105,25 @@ def signup_brand(request):
                 phone=phone,
                 website=website,
                 industry=industry,
-                role= "brand"
+                role="brand",
+                code=code  # assuming `code` is a field in your CustomUser model
             )
 
-            # Return a success response
-            return JsonResponse({'message': 'Signup successful!'}, status=200)
+            # Send the code to user's email
+            send_mail(
+                subject='Your Verification Code',
+                message=f'Your verification code is: {code}',
+                from_email='hello@demomailtrap.co',  # Update this
+                recipient_list=[email],
+                fail_silently=False,
+            )
+
+            return JsonResponse({'message': 'Signup successful! Verification code sent to your email.'}, status=200)
 
         except json.JSONDecodeError:
             return JsonResponse({'error': 'Invalid JSON data'}, status=400)
 
     return JsonResponse({'error': 'Invalid request method'}, status=405)
-
 
 
 @csrf_protect
