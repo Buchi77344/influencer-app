@@ -35,28 +35,39 @@ Colors:
 /**************************/
 body,
 html {
-    width: 100%;
+	width: 100%;
 	height: 100%;
 }
 
-body, p {
-	color: #000000; 
+body,
+p {
+	color: #000000;
 	font: 400 1rem/1.625rem "Poppins", sans-serif;
-	
+
 }
 
-.wrapper{
-	width : 90%;
-	max-width : 1560px;
+.wrapper {
+	width: 90%;
+	max-width: 1560px;
 	max-width: auto;
 }
 
-input:focus{
-	box-shadow: none!important;
+.outer-container {
+	flex: 1;
+	display: flex;
 }
 
-select:focus{
-	box-shadow: none!important;
+.inner-container {
+	width: 100%;
+	margin: auto;
+}
+
+input:focus {
+	box-shadow: none !important;
+}
+
+select:focus {
+	box-shadow: none !important;
 
 }
 
@@ -106,32 +117,46 @@ h6 {
 	line-height: 1.375rem;
 }
 
-.lg-text{
-	font-size : 3rem;
-	font-weight : 700;
+.lg-text {
+	font-size: 3rem;
+	font-weight: 700;
+}
+
+.logo-text {
+	color: #223150;
+	font-weight: 700;
+	font-size: 1.25rem;
+	line-height: 1rem;
+	text-decoration: none;
+
+}
+
+.logo-text:hover {
+	text-decoration: none;
 }
 
 
+@media(min-width : 1280px) {
 
-@media(min-width : 1280px){
-	.lg-text, .head-text{
-		text-align: start!important;	
+	.lg-text,
+	.head-text {
+		text-align: start !important;
 	}
 }
 
-@media(min-width : 900px){
-	.lg-text{
+@media(min-width : 900px) {
+	.lg-text {
 		font-size: 4rem;
 	}
 }
 
-.head-text{
-	font-size : 2.8rem;
-	font-weight : 600;
+.head-text {
+	font-size: 2.8rem;
+	font-weight: 600;
 }
 
-.block{
-	display: block!important;
+.block {
+	display: block !important;
 }
 
 .p-large {
@@ -203,13 +228,13 @@ a:hover {
 	font-size: 0.875rem;
 }
 
-.res-w-75{
-	width : 75%;
+.res-w-75 {
+	width: 75%;
 }
 
-@media(max-width : 900px){
-	.res-w-75{
-		width : 100%;
+@media(max-width : 900px) {
+	.res-w-75 {
+		width: 100%;
 	}
 }
 
@@ -229,7 +254,8 @@ a:hover {
 
 .btn-solid-reg:hover {
 	background-color: transparent;
-	color: #000000; /* needs to stay here because of the color property of a tag */
+	color: #000000;
+	/* needs to stay here because of the color property of a tag */
 	text-decoration: none;
 }
 
@@ -249,7 +275,8 @@ a:hover {
 
 .btn-solid-lg:hover {
 	background-color: white;
-	color: black; /* needs to stay here because of the color property of a tag */
+	color: black;
+	/* needs to stay here because of the color property of a tag */
 	text-decoration: none;
 	border: 2px solid black;
 }
@@ -270,9 +297,10 @@ a:hover {
 
 .btn-solid-sm:hover {
 	background-color: #f5f5f5;
-	color: #1d1d21; /* needs to stay here because of the color property of a tag */
+	color: #1d1d21;
+	/* needs to stay here because of the color property of a tag */
 	text-decoration: none;
-	border:2px solid black;
+	border: 2px solid black;
 }
 
 .btn-outline-reg {
@@ -295,18 +323,18 @@ a:hover {
 	text-decoration: none;
 }
 
-.acct-page{
-	height : 100vh;
+.acct-page {
+	height: 100vh;
 }
 
-.banner-div{
+.banner-div {
 	border-radius: 20px;
-	width : 100%;
-	height : 100%;
+	width: 100%;
+	height: 100%;
 	object-fit: cover;
 	object-position: center;
 	background-image: url("../images/pic-2.jpg");
-	background-size : cover;
+	background-size: cover;
 	background-position: center 20%;
 	background-repeat: no-repeat;
 }
@@ -367,18 +395,21 @@ a:hover {
 	background-color: #ffffff;
 	font-size: 0.875rem;
 	line-height: 1.5rem;
-	-webkit-appearance: none; /* removes inner shadow on form inputs on ios safari */
+	-webkit-appearance: none;
+	/* removes inner shadow on form inputs on ios safari */
 }
 
 .form-control-textarea {
 	display: block;
-	height: 14rem; /* used instead of html rows to normalize height between Chrome and IE/FF */
+	height: 14rem;
+	/* used instead of html rows to normalize height between Chrome and IE/FF */
 }
 
 .form-control-input:focus,
 .form-control-textarea:focus {
 	border: 1px solid #a1a1a1;
-	outline: none; /* Removes blue border on focus */
+	outline: none;
+	/* Removes blue border on focus */
 }
 
 .form-control-input:hover,
@@ -425,21 +456,16 @@ a:hover {
 }
 
 .navbar .logo-image img {
-    width: 126px;
+	width: 126px;
 	height: 32px;
 }
 
-.navbar .logo-text {
-	color: #223150;
-	font-weight: 700;
-	font-size: 1.875rem;
-	line-height: 1rem;
-	text-decoration: none;
-}
+
 
 .offcanvas-collapse {
 	position: fixed;
-	top: 3.25rem; /* adjusts the height between the top of the page and the offcanvas menu */
+	top: 3.25rem;
+	/* adjusts the height between the top of the page and the offcanvas menu */
 	bottom: 0;
 	left: 100%;
 	width: 100%;
@@ -480,16 +506,17 @@ a:hover {
 
 /* Dropdown Menu */
 .navbar .dropdown .dropdown-menu {
-	animation: fadeDropdown 0.2s; /* required for the fade animation */
+	animation: fadeDropdown 0.2s;
+	/* required for the fade animation */
 }
 
 @keyframes fadeDropdown {
-    0% {
-        opacity: 0;
-    }
+	0% {
+		opacity: 0;
+	}
 
-    100% {
-        opacity: 1;
+	100% {
+		opacity: 1;
 	}
 }
 
@@ -522,6 +549,7 @@ a:hover {
 	border: none;
 	background-color: #d1d1d1;
 }
+
 /* end of dropdown menu */
 
 .navbar .navbar-toggler {
@@ -943,7 +971,7 @@ a:hover {
 	left: -60px;
 }
 
-.footer div[class*="col"] {  
+.footer div[class*="col"] {
 	/* selects all elements which have classes starting with col */
 	/* needed so that the absolute positioned decoration stays behind */
 	position: relative;
@@ -966,7 +994,7 @@ a:hover {
 }
 
 .footer .fa-stack .fa-stack-1x {
-    color: #0092ff;
+	color: #0092ff;
 	transition: all 0.2s ease;
 }
 
@@ -980,7 +1008,7 @@ a:hover {
 }
 
 .footer .fa-stack:hover .fa-stack-2x {
-    color: #0092ff;
+	color: #0092ff;
 }
 
 
@@ -1007,18 +1035,18 @@ a:hover {
 /*     Back To Top Button     */
 /******************************/
 #myBtn {
-	position: fixed; 
-  	z-index: 99; 
-	bottom: 20px; 
-	right: 20px; 
-	display: none; 
+	position: fixed;
+	z-index: 99;
+	bottom: 20px;
+	right: 20px;
+	display: none;
 	width: 52px;
 	height: 52px;
-	border: none; 
-	border-radius: 50%; 
-	outline: none; 
-	background-color: #44434a; 
-	cursor: pointer; 
+	border: none;
+	border-radius: 50%;
+	outline: none;
+	background-color: #44434a;
+	cursor: pointer;
 }
 
 #myBtn:hover {
@@ -1087,7 +1115,7 @@ a:hover {
 
 /*************************/
 /*     Media Queries     */
-/*************************/	
+/*************************/
 /* Min-width 768px */
 @media (min-width: 768px) {
 
@@ -1101,6 +1129,7 @@ a:hover {
 		font-size: 3.25rem;
 		line-height: 3.75rem;
 	}
+
 	/* end of header */
 
 
@@ -1111,6 +1140,7 @@ a:hover {
 		margin-left: 1.5rem;
 		vertical-align: top;
 	}
+
 	/* end of statistics */
 
 
@@ -1118,14 +1148,16 @@ a:hover {
 	.ex-basic-1 .text-box {
 		padding: 1.75rem 2rem 0.875rem 2rem;
 	}
+
 	/* end of extra pages */
 }
+
 /* end of min-width 768px */
 
 
 /* Min-width 992px */
 @media (min-width: 992px) {
-	
+
 	/* General Styles */
 	.h2-heading {
 		width: 35.25rem;
@@ -1138,6 +1170,7 @@ a:hover {
 		margin-right: auto;
 		margin-left: auto;
 	}
+
 	/* end of general styles */
 
 
@@ -1178,7 +1211,7 @@ a:hover {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
-	
+
 	.navbar .nav-item .nav-link {
 		padding-right: 0.75rem;
 		padding-left: 0.75rem;
@@ -1198,6 +1231,7 @@ a:hover {
 		margin-top: 0;
 		margin-left: 1rem;
 	}
+
 	/* end of navigation */
 
 
@@ -1219,10 +1253,11 @@ a:hover {
 		margin-right: 0;
 		margin-left: 0;
 	}
-	
+
 	.header .btn-solid-lg {
 		margin-right: 0.5rem;
 	}
+
 	/* end of header */
 
 
@@ -1232,11 +1267,12 @@ a:hover {
 		width: 286px;
 		vertical-align: top;
 	}
-	
+
 	.cards-1 .card:nth-of-type(3n+2) {
 		margin-right: 2rem;
 		margin-left: 2rem;
 	}
+
 	/* end of services */
 
 
@@ -1248,14 +1284,16 @@ a:hover {
 	.basic-1 .text-container {
 		margin-top: 2rem;
 	}
+
 	/* end of details 1 */
-	
-	
+
+
 	/* Details 2 */
 	.basic-2 .text-container {
 		margin-top: 3rem;
 		margin-bottom: 0;
 	}
+
 	/* end of details 2 */
 
 
@@ -1265,11 +1303,12 @@ a:hover {
 		width: 298px;
 		vertical-align: top;
 	}
-	
+
 	.cards-2 .card:nth-of-type(3n+2) {
 		margin-right: 1rem;
 		margin-left: 1rem;
 	}
+
 	/* end of testimonials */
 
 
@@ -1290,6 +1329,7 @@ a:hover {
 		margin-right: auto;
 		margin-left: auto;
 	}
+
 	/* end of invitation */
 
 
@@ -1299,6 +1339,7 @@ a:hover {
 		margin-right: auto;
 		margin-left: auto;
 	}
+
 	/* end of footer */
 
 
@@ -1315,6 +1356,7 @@ a:hover {
 	.copyright .statement {
 		text-align: right;
 	}
+
 	/* end of copyright */
 
 
@@ -1329,20 +1371,23 @@ a:hover {
 		margin-right: 1rem;
 		margin-left: 1rem;
 	}
+
 	/* end of extra pages */
 }
+
 /* end of min-width 992px */
 
 
 /* Min-width 1200px */
 @media (min-width: 1200px) {
-	
+
 	/* General Styles */
 	.container {
 		max-width: 1140px;
 	}
+
 	/* end of general styles */
-	
+
 
 	/* Header */
 	.header {
@@ -1358,13 +1403,14 @@ a:hover {
 	.header .image-container {
 		position: relative;
 	}
-	
+
 	.header .image-container img {
 		position: absolute;
 		bottom: -520px;
 		left: 60px;
 		max-width: none;
 	}
+
 	/* end of header */
 
 
@@ -1372,11 +1418,12 @@ a:hover {
 	.cards-1 .card {
 		width: 310px;
 	}
-	
+
 	.cards-1 .card:nth-of-type(3n+2) {
 		margin-right: 5.5rem;
 		margin-left: 5.5rem;
 	}
+
 	/* end of services */
 
 
@@ -1385,6 +1432,7 @@ a:hover {
 		margin-top: 5rem;
 		margin-left: 2.75rem;
 	}
+
 	/* end of details 1 */
 
 
@@ -1397,6 +1445,7 @@ a:hover {
 	.basic-2 .image-container {
 		text-align: right;
 	}
+
 	/* end of details 2 */
 
 
@@ -1408,6 +1457,7 @@ a:hover {
 	.accordion-1 .image-container {
 		text-align: right;
 	}
+
 	/* end of features */
 
 
@@ -1415,11 +1465,12 @@ a:hover {
 	.cards-2 .card {
 		width: 356px;
 	}
-	
+
 	.cards-2 .card:nth-of-type(3n+2) {
 		margin-right: 1.125rem;
 		margin-left: 1.125rem;
 	}
+
 	/* end of testimonials */
 
 
@@ -1428,6 +1479,7 @@ a:hover {
 		padding-top: 8rem;
 		padding-bottom: 8.5rem;
 	}
+
 	/* end of invitation */
 
 
@@ -1436,10 +1488,11 @@ a:hover {
 		margin-top: 1.5rem;
 		margin-right: 2.75rem;
 	}
-	
+
 	.form-1 form {
 		margin-left: 2.75rem;
 	}
+
 	/* end of contact */
 
 
@@ -1447,6 +1500,7 @@ a:hover {
 	.footer .decoration-circles {
 		left: 0;
 	}
+
 	/* end of footer */
 
 
@@ -1459,6 +1513,8 @@ a:hover {
 		margin-right: 2.875rem;
 		margin-left: 2.875rem;
 	}
+
 	/* end of extra pages */
 }
+
 /* end of min-width 1200px */
